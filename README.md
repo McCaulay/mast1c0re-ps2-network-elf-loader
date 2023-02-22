@@ -2,6 +2,8 @@
 
 Loads PS2 ELF files built with [mast1c0re](https://github.com/McCaulay/mast1c0re). See the samples/ directory for example ELF projects.
 
+It is recommended that you use the PS2 ELF loader save as you may be locked out of being able to copy files from your USB to the game after some time of being offline from PSN. Keeping the PS2 ELF save file, you can future proof the ability to run any ELF file without the need to copy game save files.
+
 ## Running the PS2 ELF Looader
 
 You need to load the ELF loader by importing the VCM0.card file for your PS4 or PS5 firmware into an Okage: Shadow King game save. Then, you need to run the game and restore the save file to trigger the loader.
@@ -28,7 +30,7 @@ Note that the firmware version "0.00" means that the game save file should be co
 Compile a target sample project by changing directory to that project, then execute the `build.sh` script:
 
 ~~~
-cd samples/ps-load-game-net
+cd samples/ps-notification
 ./build.sh
 ~~~
 
