@@ -102,7 +102,7 @@ void main()
                         );
                         PS2::memcpy(programs[i].p_vaddr, section, programs[i].p_filesz);
                         if (programs[i].p_memsz > programs[i].p_filesz)
-                            PS2::memset(programs[i].p_vaddr + programs[i].p_filesz, 0, programs[i].p_memsz - programs[i].p_filesz);
+                            PS2::memset((void*)((uint32_t)programs[i].p_vaddr + programs[i].p_filesz), 0, programs[i].p_memsz - programs[i].p_filesz);
                     }
 
                     // Set entry point
