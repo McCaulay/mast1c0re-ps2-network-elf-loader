@@ -52,7 +52,7 @@ $(ODIR)/%.o: $(SDIR)/%.cpp
 	$(CPP) -c -o $@ $< $(CPPFLAGS)
 
 $(BDIR) $(ODIR):
-	@mkdir -p $(shell dirname $@)
+	@mkdir -p $@
 
 .PHONY: clean
 clean:
