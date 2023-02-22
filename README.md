@@ -17,7 +17,7 @@ Enter the IP address of your PS4/PS5 then select the PS2 ELF or PS2 ISO to send.
 You can use scripts/mast1c0re-send-file.py to send a PS2 ELF / ISO file once the PlayStation is waiting for the file:
 
 ~~~
-python3 mast1c0re-send-file.py --ip <ip> --file ps-load-game-net-PS4-5-05.elf
+python3 mast1c0re-send-file.py --ip <ip> --file ps-notification-PS4-5-05.elf
 ~~~
 
 ## Project Compilation
@@ -32,10 +32,14 @@ cd samples/ps-load-game-net
 ./build.sh
 ~~~
 
+## ELF Projects
+* [PS2 Network Game Loader](https://github.com/McCaulay/mast1c0re-ps2-network-game-loader)
+
 ## Supported Systems & Firmware Versions
 * PS4
   * 5.05
   * 6.72
   * 9.00
+  * 10.01
 * PS5
   * 6.50
