@@ -89,7 +89,7 @@ void main()
                     for (uint32_t i = 0; i < elf->header.e_phnum; i++)
                     {
                         // Ignore non-loadable program sections
-                        if (programs[i].p_offset == 0)
+                        if (programs[i].p_type != PT_LOAD)
                             continue;
 
                         uint8_t* section = (uint8_t*)((uint32_t)elf + programs[i].p_offset);
@@ -101,6 +101,8 @@ void main()
                             programs[i].p_filesz
                         );
                         PS2::memcpy(programs[i].p_vaddr, section, programs[i].p_filesz);
+                        if (programs[i].p_memsz > programs[i].p_filesz)
+                            PS2::memset(programs[i].p_vaddr + programs[i].p_filesz, 0, programs[i].p_memsz - programs[i].p_filesz);
                     }
 
                     // Set entry point

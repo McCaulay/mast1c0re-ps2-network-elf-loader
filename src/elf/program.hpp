@@ -2,6 +2,9 @@
 
 #include <types.hpp>
 
+#define PT_NULL    0
+#define PT_LOAD    1
+
 #pragma pack(push, 1)
 class ElfProgram
 {
