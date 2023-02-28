@@ -16,10 +16,16 @@ The GUI tool "mast1c0re-file-loader" can be used to send a PS2 ELF or PS2 ISO fi
 Enter the IP address of your PS4/PS5 then select the PS2 ELF or PS2 ISO to send.
 
 ### Command Line
-You can use scripts/mast1c0re-send-file.py to send a PS2 ELF / ISO file once the PlayStation is waiting for the file:
+You can use scripts/mast1c0re-send-file.py to send a PS2 ELF / ISO file with a progress bar once the PlayStation is waiting for the file:
 
 ~~~
 python3 mast1c0re-send-file.py --ip <ip> --file ps-notification-PS4-5-05.elf
+~~~
+
+Or, you can send the file using netcat, however no progress bar will show:
+
+~~~
+cat ps-notification-PS4-5-05.elf | nc -w 1 <ip> 9045
 ~~~
 
 ## Project Compilation
