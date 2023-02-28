@@ -76,14 +76,14 @@ class MainFrame(wx.Frame):
             wx.MessageBox('File does not exist!', 'Error', wx.OK)
             return
 
-        try:
-            # Get filesize
-            stats = os.stat(filepath)
+        # Get filesize
+        stats = os.stat(filepath)
 
-            # Update progress bar
-            progress = wx.ProgressDialog('Uploading', 'Sending file to console...', stats.st_size, self.panel)
+        # Update progress bar
+        progress = wx.ProgressDialog('Uploading', 'Sending file to console...', stats.st_size, self.panel)
 
-            with open(filepath, 'rb') as f:
+        with open(filepath, 'rb') as f:
+            try:
                 # Connect to console
                 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                 sock.settimeout(3)
@@ -108,17 +108,17 @@ class MainFrame(wx.Frame):
 
                 # Close connection
                 sock.close()
+            except socket.error:
+                wx.MessageBox('Failed to connect!', 'Error', wx.OK)
 
-            progress.Close()
+        progress.Close()
 
-            # Save values to config
-            with open(os.path.join(getCurrentDirectory(), 'mast1c0re-file-loader.json'), 'w') as f:
-                f.write(json.dumps({
-                    'ip': ip,
-                    'file': filepath,
-                }, indent=4))
-        except socket.error:
-            wx.MessageBox('Failed to connect!', 'Error', wx.OK)
+        # Save values to config
+        with open(os.path.join(getCurrentDirectory(), 'mast1c0re-file-loader.json'), 'w') as f:
+            f.write(json.dumps({
+                'ip': ip,
+                'file': filepath,
+            }, indent=4))
 
 if __name__ == '__main__':
     app = wx.App()
