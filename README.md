@@ -1,6 +1,6 @@
-# mast1c0re - PS2 ELF Loader
+# mast1c0re - PS2 Network ELF Loader
 
-Loads PS2 ELF files built with [mast1c0re](https://github.com/McCaulay/mast1c0re). See the samples/ directory for example ELF projects.
+Loads PS2 ELF files built with [mast1c0re](https://github.com/McCaulay/mast1c0re) over the network. See the samples/ directory for example ELF projects.
 
 It is recommended that you use the PS2 ELF loader save as you may be locked out of being able to copy files from your USB to the game after some time of being offline from PSN. Keeping the PS2 ELF save file, you can future proof the ability to run any ELF file without the need to copy game save files.
 
@@ -11,7 +11,7 @@ You need to load the ELF loader by importing the VCM0.card file for your PS4 or 
 ## Sending a PS2 ELF File
 
 ### GUI
-The GUI tool "mast1c0re-file-loader" can be used to send a PS2 ELF or PS2 ISO file to the PlayStation. Download the pre-built .exe from [releases](https://github.com/McCaulay/mast1c0re-ps2-elf-loader/releases).
+The GUI tool "mast1c0re-file-loader" can be used to send a PS2 ELF or PS2 ISO file to the PlayStation. Download the pre-built .exe from [releases](https://github.com/McCaulay/mast1c0re-ps2-network-elf-loader/releases).
 
 Enter the IP address of your PS4/PS5 then select the PS2 ELF or PS2 ISO to send.
 
