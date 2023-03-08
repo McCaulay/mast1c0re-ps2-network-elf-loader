@@ -1,2 +1,1 @@
-nuitka --mingw64 --no-pyi-file --remove-output --disable-console --windows-icon-from-ico=icon.ico .\mast1c0re-file-loader.py
-nuitka --no-pyi-file --remove-output --disable-console ./mast1c0re-file-loader.py
+pyinstaller --hidden-import wx --noconfirm --onedir --distpath ./ --noconsole --icon .\icon.ico .\mast1c0re-file-loader.py
