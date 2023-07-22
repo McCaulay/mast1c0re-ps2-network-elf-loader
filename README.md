@@ -50,5 +50,6 @@ cd samples/ps-notification
   * 9.00
   * 10.01
   * 10.50
+  * 10.70
 * PS5
   * 6.50
