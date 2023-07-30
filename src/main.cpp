@@ -41,7 +41,10 @@ bool downloadAndExecuteELF()
     PS::TcpServer server = PS::TcpServer();
     if (!server.listen(LISTEN_PORT))
     {
+        PS::Debug.printf("Failed to listen on port %i!", LISTEN_PORT);
+        #ifdef LIB_KERNEL_SCE_KERNEL_SEND_NOTIFICATION_REQUEST
         PS::notification("Failed to listen on port %i!", LISTEN_PORT);
+        #endif
         return false;
     }
 
@@ -153,19 +156,25 @@ bool downloadAndExecuteELF()
             else
             {
                 PS::Debug.printf("Header validation error: %s\n", error);
+                #ifdef LIB_KERNEL_SCE_KERNEL_SEND_NOTIFICATION_REQUEST
                 PS::notification("Error: %s", error);
+                #endif
             }
         }
         else
         {
             PS::Debug.printf("Error: Received a file which resulted in a different size to what was expected. %llu was received, however we expected to eeceive %llu\n", offset - headerSize, filesize);
+            #ifdef LIB_KERNEL_SCE_KERNEL_SEND_NOTIFICATION_REQUEST
             PS::notification("Error: Failed to download file");
+            #endif
         }
     }
     else
     {
         PS::Debug.printf("Error: Invalid ELF magic");
+        #ifdef LIB_KERNEL_SCE_KERNEL_SEND_NOTIFICATION_REQUEST
         PS::notification("Error: Invalid ELF magic");
+        #endif
     }
 
     // Disconnect
